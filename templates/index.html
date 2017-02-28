@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>Copy To-Go</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+        <link rel="stylesheet" href="static/css/proton/style.min.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+            integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+            crossorigin="anonymous" />
+		<link rel="stylesheet" href="static/font-awesome-4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="static/css/ctg.css" />
+    </head>
+    <body>
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-inverse fixed-top bg-inverse">
+	        <a class="navbar-brand" href="#" id="brand"><span class="fa fa-lg fa-coffee"></span> Copy To-Go</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			</button>
+	        <div id="navbar" class="navbar-collapse collapse">
+				<form class="form-group">
+        				<select class="form-control" id="usbdrive">
+        					<option selected>No USB drive found</option>
+        				</select>
+                        <br/>
+        				<div class="has-danger">
+                	        <label class="custom-control custom-checkbox">
+        						<input class="custom-control-input" type="checkbox" id="erase">
+        						<span class="custom-control-indicator"></span>
+        						<span class="custom-control-description">Erase target</span>
+                                &nbsp;
+                                <span class="fa fa-exclamation-triangle"></span>
+        					</label>
+        				</div>
+				</form>
+			</div><!--/.nav-collapse -->
+		</nav>
+		<nav class="navbar navbar-inverse fixed-bottom bg-inverse">
+            <span class="navbar-text" id="status">0 files (0 MB)</span>
+	        <button type="button" class="btn btn-primary navbar-btn" id="copy" data-toggle="modal" data-target="#copyConfirm" data-keyboard="false" data-backdrop="static"><span class="fa fa-lg fa-download"></span> Copy</button>
+        </nav>
+
+        <!-- jstree -->
+		<div class="container theme-showcase ctg_container" role="main">
+	        <div id="jstree"></div>
+		</div>
+
+        <!-- confirmation dialog -->
+        <div id="copyConfirm" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="copyMessage">Copy the selected files to the stick?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#loading" data-keyboard="false" data-backdrop="static" id="copyYes">Yes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- loading dialog -->
+        <div id="loading" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body loading-body">
+                        <div class="loader"></div>
+                        <p id="loadingMessage">Preparing your music to go!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="copyCancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+		<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+		<script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+        <script src="/static/js/ctg.js"></script>
+    </body>
+</html>
